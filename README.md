@@ -1,6 +1,6 @@
-### PulseSquare 
+# PulseSquare 
 
-## Discover Local Services. Connect. Review. Thrive.
+### Discover Local Services. Connect. Review. Thrive.
 
 PulseSquare is a community-driven MERN web platform that helps people discover services and products in towns they visit — with reviews, ratings, and trusted listings.
 Service providers can showcase their businesses, gain visibility, and even feature their listings through paid promotion.
