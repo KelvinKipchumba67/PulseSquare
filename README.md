@@ -60,7 +60,7 @@ Client (React) <----> REST API (Express) <----> Database (MongoDB)
 
 Frontend sends API requests to the backend.
 
-Backend verifies and processes data.
+Backend verifies and processes data
 
 Database stores users, services, and reviews.
 
