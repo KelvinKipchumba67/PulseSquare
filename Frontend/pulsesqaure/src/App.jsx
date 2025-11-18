@@ -5,7 +5,7 @@ import BusinessList from './pages/BusinessList';
 import BusinessDetail from './pages/BusinessDetails';
 import AddBusiness from './pages/AddBusiness';
 import Login from './pages/Login';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context/authContext';
 
 function App() {
   return (
