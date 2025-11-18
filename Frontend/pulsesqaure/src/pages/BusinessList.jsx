@@ -8,7 +8,7 @@ export default function BusinessList() {
   const [businesses, setBusinesses] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/businesses?search=${query}`)
+    axios.get(`https://pulsesquare-1.onrender.com/api/businesses?search=${query}`)
       .then(res => setBusinesses(res.data))
       .catch(err => console.error(err));
   }, [query]);

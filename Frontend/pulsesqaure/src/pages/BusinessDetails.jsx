@@ -11,8 +11,8 @@ export default function BusinessDetail() {
   const [newReview, setNewReview] = useState({ rating: 5, comment: '' });
 
   const fetchData = async () => {
-    const bizRes = await axios.get(`http://localhost:5000/api/businesses/${id}`);
-    const revRes = await axios.get(`http://localhost:5000/api/businesses/${id}/reviews`);
+    const bizRes = await axios.get(`https://pulsesquare-1.onrender.com/api/businesses/${id}`);
+    const revRes = await axios.get(`https://pulsesquare-1.onrender.com/api/businesses/${id}/reviews`);
     setBusiness(bizRes.data);
     setReviews(revRes.data);
   };
@@ -22,7 +22,7 @@ export default function BusinessDetail() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/api/businesses/${id}/reviews`, newReview, {
+      await axios.post(`https://pulsesquare-1.onrender.com/api/businesses/${id}/reviews`, newReview, {
         headers: { 'x-auth-token': token }
       });
       setNewReview({ rating: 5, comment: '' });

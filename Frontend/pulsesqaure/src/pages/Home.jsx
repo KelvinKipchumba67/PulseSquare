@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Search, Star } from 'lucide-react'; 
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api/businesses/featured';
+const API_BASE_URL = 'https://pulsesquare-1.onrender.com/api/businesses/featured';
 
 // Helper component for displaying a single featured business card
 const BusinessCard = ({ biz }) => (
