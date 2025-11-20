@@ -180,7 +180,7 @@ npm run dev
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues, and ideas are welcome!
 Fork the repo → Create a branch → Submit a PR.
