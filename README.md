@@ -1,67 +1,192 @@
-# PulseSquare 
+# PulseSquare
 
-### Discover Local Services. Connect. Review. Thrive.
+### _Discover trusted local services anywhere — powered by community reviews._
 
-PulseSquare is a community-driven MERN web platform that helps people discover services and products in towns they visit — with reviews, ratings, and trusted listings.
-Service providers can showcase their businesses, gain visibility, and even feature their listings through paid promotion.
+---
 
- Coming soon...
+## Overview
 
- Table of Contents
+**PulseSquare** is a MERN-based platform that helps users find reliable local services when traveling or moving to new places. It centralizes scattered information so users can easily search, compare, and review local businesses — especially those that are not listed online.
 
-About
+---
 
-PulseSquare connects service seekers and local providers on one platform.
-It gives users verified reviews and ratings, while providers can list their services and promote them through paid features.
+## Problem
 
-The platform is built to support local economies, digital visibility, and community trust.
+People struggle to discover trusted services because:
 
-Features
-User Roles
+- Online info is scattered and unreliable
+- Word-of-mouth recommendations are inconsistent
+- Small-town businesses often don’t exist online at all
 
-Client (Service Seeker):
-Search, view, and review services.
+---
 
-Provider (Service Owner):
-Add services or products, wait for admin approval, and pay to feature listings.
+## Solution
 
-Admin:
-Approves listings, manages payments, and monitors platform activity.
+PulseSquare solves this by letting users:
 
-Core Functions
+- Search for services (e.g., "best barber near me")
+- Read verified ratings & reviews
+- Add new businesses to the platform
+- Access location, price ranges, and contact details instantly
 
-User authentication (JWT)
+---
 
-Role-based dashboards
+## Tech Stack
 
-Add, edit, and approve listings
+### **Frontend**
 
-Review and rating system
+- React
+- TailwindCSS / Material UI
+- Axios
+- React Router
 
-Paid featured services
+### **Backend**
 
-Search and filter by location or category
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT Authentication
 
-Admin management panel
+### **Deployment**
 
-Tech Stack
+- Backend → Render / Railway
+- Frontend → Vercel / Netlify
+- Database → MongoDB Atlas
 
-Frontend: React.js, Axios, TailwindCSS, React Router
-Backend: Node.js, Express.js, Mongoose
-Database: MongoDB Atlas
-Authentication: JWT + bcrypt
-Image Storage: Cloudinary
-Payments (Future): M-Pesa API or Stripe
-Deployment: Vercel (frontend) + Render (backend)
+---
 
-Architecture
-Client (React) <----> REST API (Express) <----> Database (MongoDB)
+## Core Features (MVP)
 
+- Service search (name, category, location)
+- Business listing pages with filters
+- Business profile pages with details + map/location
+- User reviews & ratings system
+- Add new businesses
+- (Optional) User authentication for posting reviews
 
-Frontend sends API requests to the backend.
+---
 
-Backend verifies and processes data.
+## Project Structure
 
-Database stores users, services, and reviews.
+```
+PulseSquare/
+│
+├── client/            # React frontend
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/            # Node + Express backend
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── app.js
+│   └── package.json
+│
+└── README.md
+```
 
-Admin has elevated control through protected routes.
+---
+
+## API Endpoints
+
+### **Businesses**
+
+| Method | Endpoint              | Description                 |
+| ------ | --------------------- | --------------------------- |
+| GET    | `/api/businesses`     | Get all / search businesses |
+| GET    | `/api/businesses/:id` | Get single business         |
+| POST   | `/api/businesses`     | Add new business            |
+
+### **Reviews**
+
+| Method | Endpoint                      | Description                |
+| ------ | ----------------------------- | -------------------------- |
+| GET    | `/api/businesses/:id/reviews` | Get reviews for a business |
+| POST   | `/api/businesses/:id/review`  | Add a review               |
+
+### **Auth**
+
+| Method | Endpoint             |
+| ------ | -------------------- |
+| POST   | `/api/auth/register` |
+| POST   | `/api/auth/login`    |
+
+---
+
+## Installation & Setup
+
+### **1. Clone repo**
+
+```bash
+git clone https://github.com/your-username/pulsesquare.git
+cd pulsesquare
+```
+
+### **2. Install client dependencies**
+
+```bash
+cd client
+npm install
+```
+
+### **3. Install server dependencies**
+
+```bash
+cd ../server
+npm install
+```
+
+### **4. Create a `.env` file inside `/server`**
+
+```
+MONGO_URI=your_mongo_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+```
+
+### **5. Start development servers**
+
+#### Client:
+
+```bash
+cd client
+npm start
+```
+
+#### Server:
+
+```bash
+cd server
+npm run dev
+```
+
+---
+
+## Deployment
+
+### **Backend (Render / Railway)**
+
+1. Connect GitHub repo
+2. Add environment variables
+3. Deploy automatically
+
+### **Frontend (Vercel / Netlify)**
+
+1. Import client folder
+2. Set API base URL in `.env`
+3. Build & deploy
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and ideas are welcome!
+Fork the repo → Create a branch → Submit a PR.
+
+---
+
+## 🛡 License
+
+Distributed under the MIT License.
