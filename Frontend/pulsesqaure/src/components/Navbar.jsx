@@ -7,7 +7,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md">
+    <nav className="bg-slate-800 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center gap-3">
@@ -53,8 +53,8 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div id="mobile-menu" className="md:hidden bg-white/5 border-t border-white/10">
-          <div className="px-4 pt-4 pb-4 space-y-2">
+        <div id="mobile-menu" className="md:hidden bg-indigo-600/95 border-t border-indigo-700/50">
+          <div className="px-4 pt-4 pb-4 space-y-2 text-white">
             <Link to="/search" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md hover:bg-white/10">Browse</Link>
             {user ? (
               <>
