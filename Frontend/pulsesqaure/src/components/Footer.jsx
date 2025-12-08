@@ -15,7 +15,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="text-sm text-slate-400">© {new Date().getFullYear()} Pulse Square — All rights reserved.</div>
+          <div className="text-sm text-slate-400">© {new Date().getFullYear()} Pulse Square  All rights reserved.</div>
         </div>
       </div>
     </footer>
