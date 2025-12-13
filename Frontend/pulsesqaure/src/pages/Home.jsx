@@ -97,7 +97,7 @@ export default function Home() {
 
       {featured.length === 0 && (
         <p className="text-gray-500 mt-12">
-          Add some businesses and reviews to see the top-rated featured listings here!
+          Add some businesses and reviews to see the top-rated featured listings here
         </p>
       )}
 
