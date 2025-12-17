@@ -26,8 +26,7 @@ if (!process.env.MONGO_URI) {
 }
 console.log("----------------------------");
 
-// Your existing connection code...
-mongoose.connect(process.env.MONGO_URI, ...)
+
 
 
 
