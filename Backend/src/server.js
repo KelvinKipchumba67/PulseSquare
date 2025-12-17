@@ -14,6 +14,23 @@ app.use(cors());
 app.use(express.json());
 const allowedOrigins = ['http://localhost:5173'];
 // Database Connection
+// Add this temporarily to debug
+console.log("--- DEBUGGING CONNECTION ---");
+console.log("Looking for MONGO_URI...");
+if (!process.env.MONGO_URI) {
+    console.log("ERROR: MONGO_URI is undefined or null!");
+} else {
+    console.log("Success: Found MONGO_URI");
+    console.log("Length:", process.env.MONGO_URI.length);
+    console.log("First 5 chars:", process.env.MONGO_URI.substring(0, 5));
+}
+console.log("----------------------------");
+
+// Your existing connection code...
+mongoose.connect(process.env.MONGO_URI, ...)
+
+
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
