@@ -14,15 +14,17 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col bg-gray-50">
           <Navbar />
-          <div className="container mx-auto p-4 flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/search" element={<BusinessList />} />
-              <Route path="/business/:id" element={<BusinessDetail />} />
-              <Route path="/add" element={<AddBusiness />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </div>
+          <main className="flex-grow w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/search" element={<BusinessList />} />
+                <Route path="/business/:id" element={<BusinessDetail />} />
+                <Route path="/add" element={<AddBusiness />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+            </div>
+          </main>
           <Footer />
         </div>
       </Router>

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
+
+  const navLinkClass = ({ isActive }) =>
+    `rounded-md px-3 py-2 text-sm font-medium transition ${
+      isActive ? 'bg-white/10 text-white' : 'text-white/85 hover:text-white hover:bg-white/10'
+    }`;
 
   return (
     <nav className="bg-slate-800 text-white shadow-md">
@@ -19,14 +24,28 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-6">
-            <Link to="/search" className="hover:text-white/90 transition">Browse</Link>
+            <NavLink to="/search" className={navLinkClass}>Browse</NavLink>
             {user ? (
               <>
-                <Link to="/add" className="hover:text-white/90 transition">Add Business</Link>
-                <button onClick={logout} className="bg-white/10 hover:bg-white/20 px-3 py-1 rounded-md">Logout</button>
+                <NavLink to="/add" className={navLinkClass}>Add Business</NavLink>
+                <button
+                  onClick={logout}
+                  className="rounded-md bg-white/10 hover:bg-white/20 px-3 py-2 text-sm font-medium transition"
+                >
+                  Logout
+                </button>
               </>
             ) : (
-              <Link to="/login" className="bg-white/10 hover:bg-white/20 px-3 py-1 rounded-md">Login</Link>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-2 text-sm font-semibold transition ${
+                    isActive ? 'bg-white/20 text-white' : 'bg-white/10 hover:bg-white/20 text-white'
+                  }`
+                }
+              >
+                Login
+              </NavLink>
             )}
           </div>
 
@@ -53,16 +72,21 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div id="mobile-menu" className="md:hidden bg-indigo-600/95 border-t border-indigo-700/50">
+        <div id="mobile-menu" className="md:hidden bg-slate-900/95 border-t border-white/10">
           <div className="px-4 pt-4 pb-4 space-y-2 text-white">
-            <Link to="/search" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md hover:bg-white/10">Browse</Link>
+            <NavLink to="/search" onClick={() => setOpen(false)} className={navLinkClass}>Browse</NavLink>
             {user ? (
               <>
-                <Link to="/add" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md hover:bg-white/10">Add Business</Link>
-                <button onClick={() => { logout(); setOpen(false); }} className="w-full text-left px-3 py-2 rounded-md hover:bg-white/10">Logout</button>
+                <NavLink to="/add" onClick={() => setOpen(false)} className={navLinkClass}>Add Business</NavLink>
+                <button
+                  onClick={() => { logout(); setOpen(false); }}
+                  className="w-full text-left rounded-md px-3 py-2 text-sm font-medium text-white/85 hover:text-white hover:bg-white/10 transition"
+                >
+                  Logout
+                </button>
               </>
             ) : (
-              <Link to="/login" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md hover:bg-white/10">Login</Link>
+              <NavLink to="/login" onClick={() => setOpen(false)} className={navLinkClass}>Login</NavLink>
             )}
           </div>
         </div>

@@ -58,24 +58,28 @@ export default function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-xl rounded-lg mt-10">
-      <h2 className="text-3xl font-bold mb-6 text-center">
-        {isLogin ? 'Sign In' : 'Create Account'}
-      </h2>
+    <div className="max-w-md mx-auto">
+      <div className="p-6 sm:p-8 bg-white shadow-sm border border-slate-200/70 rounded-2xl">
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-2 text-center text-slate-900">
+          {isLogin ? 'Sign In' : 'Create Account'}
+        </h2>
+        <p className="text-center text-slate-600 mb-6">
+          {isLogin ? 'Welcome back. Continue where you left off.' : 'Create an account to add businesses and reviews.'}
+        </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         
         {/* Username field (only for Register) */}
         {!isLogin && (
           <div>
-            <label className="block text-sm font-medium text-gray-700">Username</label>
+            <label className="block text-sm font-medium text-slate-700">Username</label>
             <input
               type="text"
               name="username"
               value={formData.username}
               onChange={handleChange}
               required={!isLogin}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              className="mt-1 block w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500"
               placeholder="Your Name"
             />
           </div>
@@ -83,28 +87,28 @@ export default function Login() {
 
         {/* Email field */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Email</label>
+          <label className="block text-sm font-medium text-slate-700">Email</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500"
             placeholder="you@example.com"
           />
         </div>
 
         {/* Password field */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Password</label>
+          <label className="block text-sm font-medium text-slate-700">Password</label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full p-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500"
             placeholder="********"
           />
         </div>
@@ -112,7 +116,7 @@ export default function Login() {
         {/* Submission Button */}
         <button
           type="submit"
-          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="w-full py-2.5 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"
         >
           {isLogin ? 'Login' : 'Register'}
         </button>
@@ -121,9 +125,15 @@ export default function Login() {
 
       {/* Message Area */}
       {message && (
-        <p className={`mt-4 text-center ${message.includes('Success') ? 'text-green-600' : 'text-red-600'}`}>
+        <div
+          className={`mt-4 rounded-xl px-4 py-3 text-center border ${
+            message.includes('Success')
+              ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+              : 'border-red-200 bg-red-50 text-red-700'
+          }`}
+        >
           {message}
-        </p>
+        </div>
       )}
 
       {/* Switch Link */}
@@ -131,11 +141,12 @@ export default function Login() {
         {isLogin ? "Don't have an account?" : "Already have an account?"}
         <button 
           onClick={switchMode}
-          className="font-medium text-blue-600 hover:text-blue-500 ml-1"
+          className="font-semibold text-indigo-700 hover:text-indigo-800 ml-1"
         >
           {isLogin ? 'Register here' : 'Login here'}
         </button>
       </p>
+      </div>
     </div>
   );
 }

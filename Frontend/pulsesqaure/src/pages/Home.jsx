@@ -9,12 +9,12 @@ const API_BASE_URL = 'https://pulsesquare-1.onrender.com/api/businesses/featured
 const BusinessCard = ({ biz }) => (
   <Link 
     to={`/business/${biz._id}`} 
-    className="block p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border border-gray-100"
+    className="block p-5 bg-white rounded-2xl shadow-sm hover:shadow-md transition duration-200 border border-slate-200/70"
   >
-    <h3 className="text-xl font-bold text-gray-800 truncate">{biz.name}</h3>
-    <p className="text-sm text-blue-600 font-medium mb-2 uppercase">{biz.category}</p>
+    <h3 className="text-lg sm:text-xl font-bold text-slate-900 truncate">{biz.name}</h3>
+    <p className="text-xs sm:text-sm text-indigo-700 font-semibold mb-2 uppercase tracking-wide">{biz.category}</p>
     
-    <div className="flex items-center space-x-2 mb-2">
+    <div className="flex items-center gap-2 mb-2">
       <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
       <span className="text-lg font-semibold text-gray-900">
         {biz.avgRating || 'N/A'} 
@@ -24,8 +24,8 @@ const BusinessCard = ({ biz }) => (
       </span>
     </div>
     
-    <p className="text-gray-600 text-sm">{biz.location}</p>
-    <p className="text-green-600 font-bold mt-1">{biz.priceRange}</p>
+    <p className="text-slate-600 text-sm">{biz.location}</p>
+    <p className="text-emerald-700 font-semibold mt-1">{biz.priceRange}</p>
   </Link>
 );
 
@@ -50,30 +50,33 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-[calc(100vh-6rem)] text-center p-6 pt-12">
+    <div className="flex flex-col items-center justify-start min-h-[calc(100vh-6rem)] text-center py-10 sm:py-14">
       
       {/* 🌟 Hero Section */}
-      <div className="max-w-3xl mb-10">
-        <h1 className="text-6xl font-extrabold mb-4 text-gray-900 leading-tight">
-          Discover the <span className="text-blue-600">Best Local Services</span>
+      <div className="w-full max-w-4xl mb-10">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 text-slate-900 leading-tight">
+          Discover the <span className="text-indigo-700">Best Local Services</span>
         </h1>
-        <p className="text-xl text-gray-600">
+        <p className="text-base sm:text-lg text-slate-600">
           Trusted reviews and verified listings in your neighborhood.
         </p>
       </div>
 
       {/* 🔍 Search Bar */}
-      <form onSubmit={handleSearch} className="w-full max-w-2xl flex shadow-xl rounded-full bg-white transition duration-300 hover:shadow-2xl mb-16">
+      <form
+        onSubmit={handleSearch}
+        className="w-full max-w-3xl flex flex-col sm:flex-row shadow-sm hover:shadow-md transition rounded-2xl sm:rounded-full bg-white border border-slate-200/70 mb-14 overflow-hidden"
+      >
         <input 
           type="text" 
           placeholder="e.g. 'best barber near me', 'Italian restaurant', 'yoga studio'" 
-          className="flex-1 p-5 text-lg border-2 border-r-0 border-gray-200 rounded-l-full focus:outline-none focus:ring-4 focus:ring-blue-100"
+          className="flex-1 px-5 py-4 text-base sm:text-lg border-0 focus:outline-none focus:ring-4 focus:ring-indigo-100"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <button 
           type="submit" 
-          className="bg-blue-600 text-white px-8 py-5 rounded-r-full flex items-center justify-center text-lg font-semibold hover:bg-blue-700 transition duration-150"
+          className="bg-indigo-700 text-white px-6 py-4 flex items-center justify-center text-base sm:text-lg font-semibold hover:bg-indigo-800 transition"
           aria-label="Search"
         >
           <Search className="w-6 h-6 mr-2" /> 
@@ -84,7 +87,7 @@ export default function Home() {
       {/* 🏆 Featured Listings Section */}
       {featured.length > 0 && (
         <div className="w-full max-w-5xl text-left mt-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-2">
             Top Rated Local Gems
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -96,7 +99,7 @@ export default function Home() {
       )}
 
       {featured.length === 0 && (
-        <p className="text-gray-500 mt-12">
+        <p className="text-slate-500 mt-12">
           Add some businesses and reviews to see the top-rated featured listings here
         </p>
       )}
