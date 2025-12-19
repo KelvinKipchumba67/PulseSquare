@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext'; 
 
-const API_BASE_URL = 'https://pulsesquare-1.onrender.com/api/businesses';
+const API_BASE_URL = 'https://pulsesquare-brk7.onrender.com/api/businesses';
 
 export default function AddBusiness() {
   const { token, user } = useAuth(); // Get token and user from context

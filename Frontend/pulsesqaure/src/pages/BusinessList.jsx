@@ -13,7 +13,7 @@ export default function BusinessList() {
     setIsLoading(true);
     setError('');
 
-    axios.get(`https://pulsesquare-1.onrender.com/api/businesses?search=${query}`)
+    axios.get(`https://pulsesquare-brk7.onrender.com/api/businesses?search=${query}`)
       .then(res => setBusinesses(res.data))
       .catch(err => {
         console.error(err);

@@ -16,8 +16,8 @@ export default function BusinessDetail() {
     setIsLoading(true);
     setError('');
     try {
-      const bizRes = await axios.get(`https://pulsesquare-1.onrender.com/api/businesses/${id}`);
-      const revRes = await axios.get(`https://pulsesquare-1.onrender.com/api/businesses/${id}/reviews`);
+      const bizRes = await axios.get(`https://pulsesquare-brk7.onrender.com/api/businesses/${id}`);
+      const revRes = await axios.get(`https://pulsesquare-brk7.onrender.com/api/businesses/${id}/reviews`);
       setBusiness(bizRes.data);
       setReviews(revRes.data);
     } catch (e) {
@@ -33,7 +33,7 @@ export default function BusinessDetail() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`https://pulsesquare-1.onrender.com/api/businesses/${id}/reviews`, newReview, {
+      await axios.post(`https://pulsesquare-brk7.onrender.com/api/businesses/${id}/reviews`, newReview, {
         headers: { 'x-auth-token': token }
       });
       setNewReview({ rating: 5, comment: '' });
