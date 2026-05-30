@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext'; // Import the AuthContext
 
-const API_BASE_URL = 'https://pulsesquare-brk7.onrender.com/api/auth';
-
+const API_BASE_URL = 'https://pulsesquarek.onrender.com/api/auth';
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
